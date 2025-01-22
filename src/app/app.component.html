@@ -39,37 +39,15 @@
                 <div class="border ml-[-60px] h-auto items-center mt-[0.8px] absolute items-center w-60 rounded-lg bg-stone-100 top-full bg-stone-100 origine-top opacity-0 hidden flex-col group-hover/bouton:flex group-hover/bouton:opacity-100 transition-all">
                   <ul *ngFor="let item of tipos" class="justify-items-center">
                     <li>
-                      <div class="inline-flex mb-[-15px] items-center justify-center w-full">
-                        <ng-container *ngIf="item === 'PC'">
-                          <hr class="w-40 h-px my-8 bg-gray-700 border-0" />
-                          <span class="absolute px-3 font-medium text-white -translate-x-1/2 bg-gray-900 left-1/2">{{item}}</span>
-                        </ng-container>
-                        <ng-container *ngIf="item === 'Android'">
-                          <hr class="w-40 h-px my-8 bg-green-900 border-0" />
-                          <span class="absolute px-3 font-medium text-white -translate-x-1/2 bg-green-900 left-1/2">{{item}}</span>
-                        </ng-container>
-                        <ng-container *ngIf="item === 'IOS'">
-                          <hr class="w-40 h-px my-8 bg-amber-600 border-0" />
-                          <span class="absolute px-3 font-medium text-white -translate-x-1/2 bg-amber-600 left-1/2">{{item}}</span>
-                        </ng-container>
+                      <div class="inline-flex mb-[-15px] items-center justify-center w-full">                       
+                          <hr [ngClass]="retornarMainColor(item, 'bg-')" class="w-40 h-px my-8 border-0" />
+                          <span [ngClass]="retornarMainColor(item, 'bg-')" class="absolute px-3 font-medium text-white -translate-x-1/2 left-1/2">{{item}}</span>                                              
                       </div>
                     </li> 
                     <li *ngFor="let link of retornarLink(item)">
-                      <ng-container *ngIf="item === 'PC'">
-                        <a target=”_blank” href="{{link.link}}" class="my-2 block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-700 md:p-0 after:block after:content-[''] after:absolute after:h-[3px] after:bg-gray-700 after:w-full after:scale-x-0 relative after:hover:scale-x-100 after:transition after:duration-300 after:origin-center w-fit">
+                        <a target=”_blank” href="{{link.link}}" [ngClass]="[retornarMainColor(item, 'md:hover:text-'), retornarMainColor(item, 'after:bg-')]" class="my-2 block py-2 px-3 text-black rounded  md:hover:bg-transparent md:border-0  md:p-0 after:block after:content-[''] after:absolute after:h-[3px] after:w-full after:scale-x-0 relative after:hover:scale-x-100 after:transition after:duration-300 after:origin-center w-fit">
                           {{link.nome}}
-                        </a>
-                      </ng-container>
-                      <ng-container *ngIf="item === 'Android'">
-                        <a target=”_blank” href="{{link.link}}" class="my-2 block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:p-0 after:block after:content-[''] after:absolute after:h-[3px] after:bg-green-900 after:w-full after:scale-x-0 relative after:hover:scale-x-100 after:transition after:duration-300 after:origin-center w-fit">
-                          {{link.nome}}
-                        </a>
-                      </ng-container>
-                      <ng-container *ngIf="item === 'IOS'">
-                        <a target=”_blank” href="{{link.link}}" class="my-2 block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-amber-600 md:p-0 after:block after:content-[''] after:absolute after:h-[3px] after:bg-amber-600 after:w-full after:scale-x-0 relative after:hover:scale-x-100 after:transition after:duration-300 after:origin-center w-fit">
-                          {{link.nome}}
-                        </a>
-                      </ng-container>                      
+                        </a>         
                     </li>
                   </ul>
                 </div>

@@ -46,6 +46,7 @@ export class AppComponent {
       link: "https://f.fenfa88.com/PjaV",
       tipo: tipoLink.IOS
      },
+     
   ]
 
   public retornarLink(tipo: tipoLink) {
@@ -53,6 +54,25 @@ export class AppComponent {
       return this.listaLinks.filter(v => v.tipo === tipo);
     }
     return [];
+  }
+
+  public retornarMainColor(tipo: tipoLink, adtionalText:string) {
+    let retorno = "gray-700";
+    if (tipo != null) {
+      switch(tipo){
+        case tipoLink.PC:
+          retorno = "gray-700";
+          break;
+          case tipoLink.Android:
+            retorno =  "green-900";
+          break;
+          case tipoLink.IOS:
+            retorno =  "amber-600";
+          break;
+      }
+    }
+//    console.log(`retornarMainColor(${tipo}, ${adtionalText}) = ${adtionalText + retorno}`);
+    return adtionalText + retorno;
   }
 
 }
