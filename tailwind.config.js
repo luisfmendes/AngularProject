@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,ts}",
+  mode: 'jit',
+  content: ['./src/**/*.{html,ts}', "./node_modules/flowbite/**/*.js"],
+  plugins: [
+    require('flowbite/plugin') // add this line
   ],
-  theme: {
-    extend: 
-    {colors: {
-      'regal-blue': '#243c5a',
-    },},
-  },
-  plugins: [],
+  // outras configurações
 }
+
 
