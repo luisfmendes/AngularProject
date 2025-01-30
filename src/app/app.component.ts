@@ -17,7 +17,7 @@ export class AppComponent  {
   title = 'angular-project';
 
   ngOnInit(): void {
-    if (typeof document !== 'undefined') {
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       initFlowbite();
     }
   }
